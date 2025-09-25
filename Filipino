@@ -1,0 +1,200 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "CGXA Hub",
+    Icon = 0,
+    LoadingTitle = "Proyekto ng CGXA Hub",
+    LoadingSubtitle = "ni superbadodoy",
+    ShowText = "CGXA Hub",
+    Theme = "Default",
+    ToggleUIKeybind = "K",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "ConfigFolder",
+        FileName = "CGXA Hub"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = true
+    },
+    KeySystem = false,
+    KeySettings = {
+        Title = "Walang Pamagat",
+        Subtitle = "Sistema ng Susi",
+        Note = "Walang ibinigay na paraan upang makuha ang susi",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
+})
+
+-- Home Tab
+local HomeTab = Window:CreateTab("Tahanan", "house")
+local HomeLabel = HomeTab:CreateLabel("Maligayang pagdating!", "house")
+local HomeParagraph = HomeTab:CreateParagraph({Title = "Paalala", Content = "Maaaring hindi gumana ang mga script dahil sa executor."})
+
+local TimeDateSection = HomeTab:CreateSection("Oras at Petsa")
+local TimeLabel = TimeDateSection:CreateLabel(os.date("%H:%M:%S"))
+local DateLabel = TimeDateSection:CreateLabel(os.date("%m-%d-%y"))
+
+local HomeSection = HomeTab:CreateSection("Tahanan")
+local DexButton = HomeSection:CreateButton({
+    Name = "Dex",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/memeenjoyer43/darkdex/refs/heads/main/script"))()
+    end
+})
+local debUNCButton = HomeSection:CreateButton({
+    Name = "debUNC",
+    Callback = function()
+        loadstring(game:HttpGet("https://github.com/alyssagithub/debUNC/raw/main/debUNC.luau"))()
+    end
+})
+
+-- Scripts Tab
+local ScriptsTab = Window:CreateTab("Mga Script")
+local AdminSection = ScriptsTab:CreateSection("Admin scripts")
+local InfiniteYieldButton = AdminSection:CreateButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end
+})
+local ProtonAdminButton = AdminSection:CreateButton({
+    Name = "Proton Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/leg1337/legadmv2/main/legadminv2.lua"))()
+    end
+})
+local NamelessAdminButton = AdminSection:CreateButton({
+    Name = "Nameless Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
+    end
+})
+local CMDXButton = AdminSection:CreateButton({
+    Name = "CMD-X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))()
+    end
+})
+
+-- Hubs Section
+local HubsSection = ScriptsTab:CreateSection("Mga Hub")
+local GhostHubButton = HubsSection:CreateButton({
+    Name = "XxGhosthubxX",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-X-Ghost-Hub-X-7595"))()
+    end
+})
+
+-- Universal Tab
+local UniversalTab = Window:CreateTab("Pangkalahatan", "pin")
+local TeslaSection = UniversalTab:CreateSection("Mga Script")
+TeslaSection:CreateButton({
+    Name = "teslacuetos' bluugui",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuauIsBluu/BluuGui-by-118o8/refs/heads/main/BluuGui%20V2.1.lua"))()
+    end
+})
+local AnimationSection = UniversalTab:CreateSection("Animasyon")
+AnimationSection:CreateButton({
+    Name = "Seraphic Blade",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/59mJGQGe/raw"))()
+    end
+})
+
+-- Other Tab
+local OtherTab = Window:CreateTab("Iba Pa")
+local BypassersChatSection = OtherTab:CreateSection("Chat ng mga Bypasser")
+BypassersChatSection:CreateButton({
+    Name = "MALAKING UPDATE Keyless cookie bypass OP chat bypass",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/mert134/358b6c0b43e67f75dd4c8f1fc17af692/raw/eeeb6479868b3aaee57d8b60559e6d1aae13d17d/gistfile1.txt"))()
+    end
+})
+BypassersChatSection:CreateButton({
+    Name = "Axur Byp*sser",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XE3Scripts/Axur/refs/heads/main/AxurBypassV2", true))()
+    end
+})
+BypassersChatSection:CreateButton({
+    Name = "Axur Bypasser V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XE3Scripts/Axur/refs/heads/main/AxurBypassV2", true))()
+    end
+})
+BypassersChatSection:CreateButton({
+    Name = "BYPASS CHAT SCRIPT ROBLOX FREE",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/synkixr/FEARLESS-GUI/refs/heads/main/fearless-chat-bypass"))()
+    end
+})
+
+-- Settings Tab
+local SettingsTab = Window:CreateTab("Mga Setting")
+
+local HubColorSection = SettingsTab:CreateSection("Kulay ng Hub")
+local ColorPicker = HubColorSection:CreateColorPicker({
+    Name = "Kulay ng Hub",
+    Color = Color3.fromRGB(255, 255, 255),
+    Flag = "Hubcolor1",
+    Callback = function(Value)
+        Window:ChangeThemeColor(Value)
+    end
+})
+HubColorSection:CreateButton({
+    Name = "Palitan ang kulay",
+    Callback = function()
+        local selectedColor = ColorPicker:UpdateColor()
+        Window:ChangeThemeColor(selectedColor)
+    end
+})
+
+local SimpleColorSection = SettingsTab:CreateSection("Simpleng pagpili ng kulay")
+local RedInput = SimpleColorSection:CreateInput({
+    Name = "Pula",
+    CurrentValue = "",
+    PlaceholderText = "Ilagay ang Pula (0-255)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputRed",
+    Callback = function() end
+})
+local GreenInput = SimpleColorSection:CreateInput({
+    Name = "Berde",
+    CurrentValue = "",
+    PlaceholderText = "Ilagay ang Berde (0-255)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputGreen",
+    Callback = function() end
+})
+local BlueInput = SimpleColorSection:CreateInput({
+    Name = "Bughaw",
+    CurrentValue = "",
+    PlaceholderText = "Ilagay ang Bughaw (0-255)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputBlue",
+    Callback = function() end
+})
+SimpleColorSection:CreateButton({
+    Name = "Palitan ang kulay",
+    Callback = function()
+        local r = tonumber(RedInput:Get()) or 0
+        local g = tonumber(GreenInput:Get()) or 0
+        local b = tonumber(BlueInput:Get()) or 0
+        Window:ChangeThemeColor(Color3.fromRGB(r, g, b))
+    end
+})
+
+local SettingsMainSection = SettingsTab:CreateSection("Mga Setting")
+SettingsMainSection:CreateDropdown({
+    Name = "Pumili ng wika",
+    Options = {"Ingles", "Filipino", "Espanyol", "Pranses", "Aleman", "Hapones"},
+    CurrentOption = "Ingles",
+    Flag = "LanguageSelector",
+    Callback = function() end
+})
