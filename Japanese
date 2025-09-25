@@ -1,0 +1,200 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "CGXA Hub",
+    Icon = 0,
+    LoadingTitle = "CGXA Hub プロジェクト",
+    LoadingSubtitle = "作成者: superbadodoy",
+    ShowText = "CGXA Hub",
+    Theme = "Default",
+    ToggleUIKeybind = "K",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "ConfigFolder",
+        FileName = "CGXA Hub"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = true
+    },
+    KeySystem = false,
+    KeySettings = {
+        Title = "無題",
+        Subtitle = "キーシステム",
+        Note = "キーを取得する方法は提供されていません",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
+})
+
+-- Home Tab
+local HomeTab = Window:CreateTab("ホーム", "house")
+local HomeLabel = HomeTab:CreateLabel("ようこそ！", "house")
+local HomeParagraph = HomeTab:CreateParagraph({Title = "通知", Content = "スクリプトは実行環境によって動作しない場合があります。"})
+
+local TimeDateSection = HomeTab:CreateSection("時間と日付")
+local TimeLabel = TimeDateSection:CreateLabel(os.date("%H:%M:%S"))
+local DateLabel = TimeDateSection:CreateLabel(os.date("%m-%d-%y"))
+
+local HomeSection = HomeTab:CreateSection("ホーム")
+local DexButton = HomeSection:CreateButton({
+    Name = "Dex",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/memeenjoyer43/darkdex/refs/heads/main/script"))()
+    end
+})
+local debUNCButton = HomeSection:CreateButton({
+    Name = "debUNC",
+    Callback = function()
+        loadstring(game:HttpGet("https://github.com/alyssagithub/debUNC/raw/main/debUNC.luau"))()
+    end
+})
+
+-- Scripts Tab
+local ScriptsTab = Window:CreateTab("スクリプト")
+local AdminSection = ScriptsTab:CreateSection("管理者スクリプト")
+local InfiniteYieldButton = AdminSection:CreateButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end
+})
+local ProtonAdminButton = AdminSection:CreateButton({
+    Name = "Proton Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/leg1337/legadmv2/main/legadminv2.lua"))()
+    end
+})
+local NamelessAdminButton = AdminSection:CreateButton({
+    Name = "Nameless Admin",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ltseverydayyou/Nameless-Admin/main/Source.lua"))()
+    end
+})
+local CMDXButton = AdminSection:CreateButton({
+    Name = "CMD-X",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source"))()
+    end
+})
+
+-- Hubs Section
+local HubsSection = ScriptsTab:CreateSection("ハブ")
+local GhostHubButton = HubsSection:CreateButton({
+    Name = "XxGhosthubxX",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-X-Ghost-Hub-X-7595"))()
+    end
+})
+
+-- Universal Tab
+local UniversalTab = Window:CreateTab("ユニバーサル", "pin")
+local TeslaSection = UniversalTab:CreateSection("スクリプト")
+TeslaSection:CreateButton({
+    Name = "teslacuetos' bluugui",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/LuauIsBluu/BluuGui-by-118o8/refs/heads/main/BluuGui%20V2.1.lua"))()
+    end
+})
+local AnimationSection = UniversalTab:CreateSection("アニメーション")
+AnimationSection:CreateButton({
+    Name = "Seraphic Blade",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/59mJGQGe/raw"))()
+    end
+})
+
+-- Other Tab
+local OtherTab = Window:CreateTab("その他")
+local BypassersChatSection = OtherTab:CreateSection("バイパスチャット")
+BypassersChatSection:CreateButton({
+    Name = "大規模アップデート Keyless cookie bypass OP chat bypass",
+    Callback = function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/mert134/358b6c0b43e67f75dd4c8f1fc17af692/raw/eeeb6479868b3aaee57d8b60559e6d1aae13d17d/gistfile1.txt"))()
+    end
+})
+BypassersChatSection:CreateButton({
+    Name = "Axur Byp*sser",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XE3Scripts/Axur/refs/heads/main/AxurBypassV2", true))()
+    end
+})
+BypassersChatSection:CreateButton({
+    Name = "Axur Bypasser V2",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XE3Scripts/Axur/refs/heads/main/AxurBypassV2", true))()
+    end
+})
+BypassersChatSection:CreateButton({
+    Name = "BYPASS CHAT SCRIPT ROBLOX 無料",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/synkixr/FEARLESS-GUI/refs/heads/main/fearless-chat-bypass"))()
+    end
+})
+
+-- Settings Tab
+local SettingsTab = Window:CreateTab("設定")
+
+local HubColorSection = SettingsTab:CreateSection("ハブの色")
+local ColorPicker = HubColorSection:CreateColorPicker({
+    Name = "ハブの色",
+    Color = Color3.fromRGB(255, 255, 255),
+    Flag = "Hubcolor1",
+    Callback = function(Value)
+        Window:ChangeThemeColor(Value)
+    end
+})
+HubColorSection:CreateButton({
+    Name = "色を変更",
+    Callback = function()
+        local selectedColor = ColorPicker:UpdateColor()
+        Window:ChangeThemeColor(selectedColor)
+    end
+})
+
+local SimpleColorSection = SettingsTab:CreateSection("簡単なカラーピッカー")
+local RedInput = SimpleColorSection:CreateInput({
+    Name = "赤",
+    CurrentValue = "",
+    PlaceholderText = "赤を入力 (0-255)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputRed",
+    Callback = function() end
+})
+local GreenInput = SimpleColorSection:CreateInput({
+    Name = "緑",
+    CurrentValue = "",
+    PlaceholderText = "緑を入力 (0-255)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputGreen",
+    Callback = function() end
+})
+local BlueInput = SimpleColorSection:CreateInput({
+    Name = "青",
+    CurrentValue = "",
+    PlaceholderText = "青を入力 (0-255)",
+    RemoveTextAfterFocusLost = false,
+    Flag = "InputBlue",
+    Callback = function() end
+})
+SimpleColorSection:CreateButton({
+    Name = "色を変更",
+    Callback = function()
+        local r = tonumber(RedInput:Get()) or 0
+        local g = tonumber(GreenInput:Get()) or 0
+        local b = tonumber(BlueInput:Get()) or 0
+        Window:ChangeThemeColor(Color3.fromRGB(r, g, b))
+    end
+})
+
+local SettingsMainSection = SettingsTab:CreateSection("設定")
+SettingsMainSection:CreateDropdown({
+    Name = "言語を選択",
+    Options = {"英語", "フィリピン語", "スペイン語", "フランス語", "ドイツ語", "日本語"},
+    CurrentOption = "英語",
+    Flag = "LanguageSelector",
+    Callback = function() end
+})
